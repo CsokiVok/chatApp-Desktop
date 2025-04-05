@@ -12,7 +12,7 @@ function createWindow() {
   });
 
   // A Vite frontend futás közbeni URL-je
-  win.loadURL('http://localhost:5173');
+  win.loadURL('http://localhost:5173/home');
 }
 
 app.whenReady().then(createWindow);
