@@ -1,0 +1,22 @@
+{
+  "name": "chatapp-desktop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+  "start": "concurrently \"npm run backend\" \"npm run frontend\" \"npm run electron\"",
+  "frontend": "cd frontend && npm run dev",
+  "backend": "cd backend && npm run dev",
+  "electron": "wait-on http://localhost:5173 && electron electron/main.js"
+},
+"devDependencies": {
+  "wait-on": "^7.0.1"
+},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^9.1.2",
+    "electron": "^35.1.4"
+  }
+}
