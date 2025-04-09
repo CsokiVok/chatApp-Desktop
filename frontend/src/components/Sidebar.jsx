@@ -31,7 +31,7 @@ const Sidebar = () => {
                 </div>
             </div>
 
-            <div className="overflow-y-auto w-full py-3">
+            <div className="overflow-y-auto w-full scrollbar-hide py-3">
                 {users.map((user) => (
                     <button 
                     key={user._id} 
@@ -49,7 +49,7 @@ const Sidebar = () => {
                             )}
                         </div>
 
-                        <div className=" lb:block text-left min-w-0">
+                        <div className=" lb:block text-left min-w-0 lg:block hidden">
                             <div className="font-medium">{user.name}</div>
                             <div className="text-sm text-zinc-400">
                                 {onlineUsers.includes(user._id) ? "Online" : "Offline"}

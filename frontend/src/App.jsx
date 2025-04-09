@@ -2,7 +2,6 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
-import Settings from "./pages/Settings";
 import Profile from "./pages/profile";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useAuthStore } from "./store/useAuthStore";
@@ -38,7 +37,6 @@ console.log(onlineUsers);
         <Route path="/home" element={authUser ? <Home /> : <Navigate to="/login"/>} />
         <Route path="/signup" element={!authUser ? <SignUp /> : <Navigate to="/home"/>} />
         <Route path="/login" element={!authUser ? <Login /> : <Navigate to="/home"/>} />
-        <Route path="/setting" element={authUser ? <Settings /> : <Navigate to="/login"/>} />
         <Route path="/profile" element={authUser ? <Profile /> : <Navigate to="/login"/>} />
       </Routes>
 
