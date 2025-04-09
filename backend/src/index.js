@@ -11,22 +11,24 @@ dotenv.config();
 
 const PORT = process.env.PORT;
 
-// 👉 Adatküldési méret limit beállítása (egyszer!)
+// Adatküldési méret limit beállítása (egyszer!)
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
 
-// 👉 CORS beállítások
+// CORS 
 app.use(cookieParser());
 app.use(cors({
-    origin: "http://localhost:5173",
-    credentials: true
+    origin: "*",
+    preflightContinue: false,
+    optionsSuccessStatus: 204,
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE'
 }));
 
-// 👉 Route-ok regisztrálása
+// Route-ok regisztrálása
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
 
-// 👉 Szerver indítása
+// Szerver indítása
 server.listen(PORT, () => {
     console.log(`megyen ${PORT}`);
     connectDB();

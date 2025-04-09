@@ -34,14 +34,15 @@ export const signup = async (req, res) => {
 
         if(newUser){
             //mongodb _id-t tárol
-            generateToken(newUser._id, res)
+            const token = generateToken(newUser._id, res)
             await newUser.save();
 
             res.status(201).json({
                 _id: newUser._id,
                 name: newUser.name,
                 email: newUser.email,
-                profilePic: newUser.profilePic
+                profilePic: newUser.profilePic,
+                token
             })
         }else{
             res.status(400).json={message:"Invalid data"}
@@ -53,6 +54,9 @@ export const signup = async (req, res) => {
 };
 
 export const login = async (req, res) => {
+    console.log(req.headers,req.hostname);
+    
+
     const {email, password} = req.body
     try{
         const user = await User.findOne({email})
@@ -66,13 +70,14 @@ export const login = async (req, res) => {
         if(!correctPassword){
             return res.status(400).json({message: "Invalid email or password"})
         }
-        generateToken(user._id, res);
+        const token = generateToken(user._id, res);
 
         res.status(200).json({
             _id: user._id,
             name: user.name,
             email: user.email,
-            profilePic: user.profilePic
+            profilePic: user.profilePic,
+            token
         })
 
     }catch(e){

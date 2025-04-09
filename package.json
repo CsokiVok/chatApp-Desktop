@@ -31,17 +31,22 @@
     "start": "concurrently \"npm run backend\" \"npm run frontend\" \"npm run electron\"",
     "frontend": "cd frontend && npm run dev",
     "backend": "cd backend && npm run dev",
-    "electron": "wait-on http://localhost:5173 && electron electron/main.js"
+    "electron": "wait-on http://localhost:5173 && electron electron/main.js",
+
+    "build:frontend": "cd frontend && npm run build:electron",
+    "pack": "electron-builder --dir",
+    "dist": "npm run build:frontend && electron-builder"
   },
   "devDependencies": {
+    "electron": "^35.1.4",
     "electron-builder": "^26.0.12",
     "wait-on": "^7.0.1"
   },
+  
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "concurrently": "^9.1.2",
-    "electron": "^35.1.4"
+    "concurrently": "^9.1.2"
   }
 }

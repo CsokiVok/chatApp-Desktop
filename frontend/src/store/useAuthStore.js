@@ -32,6 +32,7 @@ export const useAuthStore = create((set, get) => ({
     set({ signingUp: true }); // Állapot beállítása
     try {
       const res = await axioss.post("/auth/signup", data);
+      localStorage.setItem('token', res.data.token); // Token mentése a helyi tárolóba
       toast.success("Signup successful");
       set({ authUser: res.data });
 
@@ -47,6 +48,7 @@ export const useAuthStore = create((set, get) => ({
     try {
       await axioss.post("/auth/logout")
       set({ authUser: null })
+      localStorage.removeItem('token'); // Token eltávolítása a helyi tárolóból
       toast.success("Logged out")
 
       get().disconnectSocket();
@@ -59,6 +61,7 @@ export const useAuthStore = create((set, get) => ({
     set({ loggingin: true })
     try {
       const res = await axioss.post("/auth/login", data);
+      localStorage.setItem('token', res.data.token); // Token mentése a helyi tárolóba
       toast.success("Login succesful");
       set({ authUser: res.data });
 
