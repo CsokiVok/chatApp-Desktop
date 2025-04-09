@@ -31,7 +31,7 @@ console.log(onlineUsers);
   }
 
   return (
-    <div data-theme="aqua">
+    <div>
       <Navbar />
 
       <Routes>

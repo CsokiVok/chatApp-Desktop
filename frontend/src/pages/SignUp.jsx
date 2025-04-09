@@ -15,17 +15,8 @@ function SignUp() {
   const { signup, isSigningUp } = useAuthStore();
 
   const validateForm = () => {
-    if (!formData.name.trim()) {
-      return toast.error("Kő név");
-    }
-    if (!formData.email.trim()) {
-      return toast.error("Kő email");
-    }
-    if (!formData.password) {
-      return toast.error("Kő password");
-    }
-    if (formData.password.length < 6) {
-      return toast.error("Rövid a jelszó");
+    if (!formData.name.trim() || !formData.email.trim() || !formData.password.trim()) {
+      return toast.error("Minden mezőt ki kell tölteni");
     }
     return true;
   };
@@ -38,9 +29,9 @@ function SignUp() {
   };
 
   return (
-    <div className="min-h-screen flex justify-center items-center">
+    <div className="min-h-screen flex justify-center bg-base-200 items-center">
       <div className="w-full max-w-md p-6">
-        <form onSubmit={handleSubmit} className="space-y-6 bg-white shadow-lg rounded-lg p-8">
+        <form onSubmit={handleSubmit} className="space-y-6 bg-base-100 shadow-lg rounded-lg p-8">
           {/* Full Name */}
           <div className="form-control">
             <label className="label">
@@ -106,8 +97,7 @@ function SignUp() {
 
         {/* Login Link */}
         <div className="text-center mt-4">
-          <p className="text-gray-500">
-            Login{' '}
+          <p>
             <Link to="/login" className="link text-blue-500 hover:text-blue-700">
               Bejelentkezés
             </Link>

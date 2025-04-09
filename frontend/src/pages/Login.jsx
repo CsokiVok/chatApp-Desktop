@@ -19,9 +19,9 @@ function Login() {
   };
   
   return (
-    <div className="min-h-screen flex justify-center items-center">
+    <div className="min-h-screen flex justify-center items-center bg-base-200">
       <div className="w-full max-w-md p-6">
-        <form onSubmit={handleSubmit} className="space-y-6 bg-white shadow-lg rounded-lg p-8">
+        <form onSubmit={handleSubmit} className="space-y-6 bg-base-100 shadow-lg rounded-lg p-8">
           {/* Email */}
           <div className="form-control">
             <label className="label">
@@ -62,8 +62,7 @@ function Login() {
 
           {/* Login Link */}
         <div className="text-center mt-4">
-          <p className="text-gray-500">
-            Login{' '}
+          <p>
             <Link to="/signup" className="link text-blue-500 hover:text-blue-700">
               Regisztráció
             </Link>

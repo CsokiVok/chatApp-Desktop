@@ -1,12 +1,6 @@
 @import "tailwindcss";
-@config '../tailwind.config.js';
 
-@layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
-  }
+@plugin "daisyui" {
+  themes: light --default, dark --prefersdark, aqua, synthwave, sunset, night; 
+  /* cupcake, ... */
 }
