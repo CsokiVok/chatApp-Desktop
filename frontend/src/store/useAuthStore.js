@@ -19,6 +19,11 @@ export const useAuthStore = create((set, get) => ({
       const res = await axioss.get("/auth/check");
       set({ authUser: res.data });
 
+      // Frissítsük az axios fejlécet a tokennel
+      const token = localStorage.getItem("token");
+      if (token) {
+        axioss.defaults.headers.Authorization = `Bearer ${token}`;
+      }
       get().connectSocket();
     } catch (error) {
       set({ authUser: null });
@@ -29,18 +34,13 @@ export const useAuthStore = create((set, get) => ({
   },
 
   signup: async (data) => {
-    set({ signingUp: true }); // Állapot beállítása
     try {
       const res = await axioss.post("/auth/signup", data);
-      localStorage.setItem('token', res.data.token); // Token mentése a helyi tárolóba
-      toast.success("Signup successful");
+      localStorage.setItem("token", res.data.token); // Token mentése
       set({ authUser: res.data });
-
       get().connectSocket();
     } catch (error) {
       toast.error(error.response.data.message);
-    } finally {
-      set({ signingUp: false }); // Állapot visszaállítása
     }
   },
 
@@ -58,17 +58,17 @@ export const useAuthStore = create((set, get) => ({
   },
 
   login: async (data) => {
-    set({ loggingin: true })
     try {
       const res = await axioss.post("/auth/login", data);
-      localStorage.setItem('token', res.data.token); // Token mentése a helyi tárolóba
-      toast.success("Login succesful");
+      localStorage.setItem("token", res.data.token); // Token mentése
       set({ authUser: res.data });
-
       get().connectSocket();
+
+      // Oldal újratöltése a bejelentkezés után
+      window.location.reload();
     } catch (error) {
       toast.error(error.response.data.message);
-    } finally { set({ loggingin: false }) }
+    }
   },
 
   updateProfile: async (data) => {

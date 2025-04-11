@@ -15,6 +15,12 @@ function App() {
 console.log(onlineUsers);
 
 
+useEffect(() => {
+  if(location.pathname === "/"){
+    location.replace("/home")
+  }
+}, [])
+
   useEffect(() => {
     checkAuth();
   }, [checkAuth]);
