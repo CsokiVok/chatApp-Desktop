@@ -10,16 +10,15 @@ function createWindow() {
       nodeIntegration: false,
       contextIsolation: true,
     },
-    
   });
-  
 
   if (isDev) {
     win.loadURL('http://localhost:5173/home');
     win.webContents.openDevTools();
   } else {
-    win.loadFile(path.join(__dirname, '../frontend/dist/index.html'));
-    win.webContents.openDevTools();
+    win.loadFile(path.join(__dirname, '../frontend/dist/index.html'), {
+      hash: '#/home', // Alapértelmezett útvonal beállítása
+    });
   }
 }
 

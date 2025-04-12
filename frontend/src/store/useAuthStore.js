@@ -2,7 +2,6 @@ import { create } from "zustand";
 import { axioss } from "../lib/axios";
 import toast from "react-hot-toast";
 import { io } from "socket.io-client";
-import { useNavigate } from "react-router-dom";
 
 const BASE_URL = "http://localhost:5001";
 
