@@ -35,7 +35,7 @@ function SignUp() {
           {/* Full Name */}
           <div className="form-control">
             <label className="label">
-              <span className="label-text font-medium">Full Name</span>
+              <span className="label-text font-medium">Teljes név</span>
             </label>
             <div className="relative">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center">
@@ -44,7 +44,7 @@ function SignUp() {
               <input
                 type="text"
                 className="input input-bordered w-full pl-10"
-                placeholder="Full Name"
+                placeholder="Teljes név"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               />
@@ -63,7 +63,7 @@ function SignUp() {
               <input
                 type="email"
                 className="input input-bordered w-full pl-10"
-                placeholder="example@gmail.com"
+                placeholder="pelda@gmail.com"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               />
@@ -73,7 +73,7 @@ function SignUp() {
           {/* Password */}
           <div className="form-control">
             <label className="label">
-              <span className="label-text font-medium">Password</span>
+              <span className="label-text font-medium">Jelszó</span>
             </label>
             <div className="relative">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center">

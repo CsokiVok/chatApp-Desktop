@@ -29,8 +29,7 @@ function profile() {
       <div className="max-w-2xl mx-auto p-4 py-8">
         <div className="bg-base-300 rounded-xl p-6 space-y-8">
           <div className="text-center">
-            <h1 className='text-2xl font-semibold'>Aadgkoi</h1>
-            <p className='mt-2'>Tawfojap</p>
+            <h1 className='text-2xl font-semibold'>Profil</h1>
           </div>
 
           {/* Profilkép feltöltés */}
@@ -51,13 +50,14 @@ function profile() {
                 <input type="file" className='hidden' id='avatarUpload' accept='image/*' onChange={handleImage} />
               </label>
             </div>
-            <p className='text-sm text-zinc-400'>Click the camera to update your photo</p>
+            <p className='text-sm text-zinc-400'>Kattints a fényképezőre a profilkép frissítéséhez</p>
           </div>
 
+          {/* Profiladatok */}
           <div className="space-y-6">
             <div className="space-y-1 5">
               <div className="text-sm text-zinc-400 felx-center gap-2">
-                <User className='size-5' /> Full name
+                <User className='size-5' /> Teljes név
               </div>
               <p className='px-4 py-2.5 bg-base-200 rounded-lg border'> {authUser.name}</p>
             </div>

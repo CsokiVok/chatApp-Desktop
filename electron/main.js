@@ -4,14 +4,14 @@ const isDev = !app.isPackaged;
 
 function createWindow() {
   const win = new BrowserWindow({
-    width: 1000,
-    height: 800,
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: true,
     },
   });
-
+  
+  win.maximize()
+  
   if (isDev) {
     win.loadURL('http://localhost:5173/home');
     win.webContents.openDevTools();

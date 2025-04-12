@@ -13,8 +13,8 @@ const NoChatSelected = () => {
                 </div>
             </div>
 
-            <h2 className='text-2xl font-bold'>Csá</h2>
-            <p className='text-base-content/60'>Válasszmán valakit</p>
+            <h2 className='text-2xl font-bold'>Üdvözöljük!</h2>
+            <p className='text-base-content/60'>Válasszon ki valakit a listából</p>
         </div>
     </div>
   )

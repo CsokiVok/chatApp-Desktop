@@ -16,7 +16,7 @@ function Navbar() {
                         {location.pathname === '/profile' && (
                             <Link to={"/home"} className='btn btn-sm gap-2 transition-colors'>
                                 <Home className='size-4' />
-                                <span className='hidden sm-inline'>Home</span>
+                                <span className='hidden sm-inline'>Főoldal</span>
                             </Link>
                         )}
 
@@ -24,12 +24,12 @@ function Navbar() {
                             <>
                                 <Link to={"/profile"} className={'btn btn-sm gap-2'}>
                                     <User className='size-5' />
-                                    <span className='hidden sm:inline'>Profile</span>
+                                    <span className='hidden sm:inline'>Profil</span>
                                 </Link>
 
                                 <button className='btn btn-sm gap-2 flex gap-2 items-center' onClick={logout}>
                                     <LogOut className='size-5' />
-                                    <span className='hidden sm:inline'>Logout</span>
+                                    <span className='hidden sm:inline'>Kijelentkezés</span>
                                 </button>
                             </>
                         )}

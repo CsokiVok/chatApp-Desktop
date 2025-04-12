@@ -27,7 +27,7 @@ const Sidebar = () => {
                 <div className="flex items-center gap-2">
                     <Users className='size-4'/>
                     
-                    <button onClick={() => setSelectedUser(null)}>Nberek</button>
+                    <button onClick={() => setSelectedUser(null)}>Emberek</button>
                 </div>
             </div>
 

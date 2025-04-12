@@ -11,13 +11,13 @@ function Login() {
     password: "",
   });
 
-  const {login, isLoggingIn} = useAuthStore()
+  const { login, isLoggingIn } = useAuthStore()
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     login(formData)
   };
-  
+
   return (
     <div className="min-h-screen flex justify-center items-center bg-base-200">
       <div className="w-full max-w-md p-6">
@@ -34,7 +34,7 @@ function Login() {
               <input
                 type="email"
                 className="input input-bordered w-full pl-10"
-                placeholder="example@gmail.com"
+                placeholder="pelda@gmail.com"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               />
@@ -44,7 +44,7 @@ function Login() {
           {/* Password */}
           <div className="form-control">
             <label className="label">
-              <span className="label-text font-medium">Password</span>
+              <span className="label-text font-medium">Jelszó</span>
             </label>
             <div className="relative">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center">
@@ -61,17 +61,17 @@ function Login() {
           </div>
 
           {/* Login Link */}
-        <div className="text-center mt-4">
-          <p>
-            <Link to="/signup" className="link text-blue-500 hover:text-blue-700">
-              Regisztráció
-            </Link>
-          </p>
-        </div>
+          <div className="text-center mt-4">
+            <p>
+              <Link to="/signup" className="link text-blue-500 hover:text-blue-700">
+                Regisztráció
+              </Link>
+            </p>
+          </div>
 
           {/* Submit Button */}
           <button type="submit" className="btn btn-primary w-full">
-            Fiók létrehozása
+            Bejelentkezés
           </button>
         </form>
       </div>
