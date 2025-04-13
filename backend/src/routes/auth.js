@@ -1,5 +1,5 @@
 import express from "express";
-import { checkAuth, login, logout, signup, updateProfile } from "../controllers/authController.js";
+import { checkAuth, login, logout, signup, updateProfile, banUser, unbanUser } from "../controllers/authController.js";
 import { protectRoute } from "../middleware/authMiddleware.js";
 
 const router = express.Router()
@@ -7,6 +7,8 @@ const router = express.Router()
 router.post("/signup", signup)
 router.post("/login", login)
 router.post("/logout", logout)
+router.put("/ban/:userId", protectRoute, banUser)
+router.put("/unban/:userId", protectRoute, unbanUser)
 
 router.put("/update-profile", protectRoute, updateProfile)
 

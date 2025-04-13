@@ -3,6 +3,19 @@ import { getReceiverSocketId, io } from "../lib/socket.js";
 import Message from "../models/message.js";
 import User from "../models/user.js";
 
+
+export const getAllMessagesByUser = async (req, res) => {
+    try {
+        const { id } = req.params; // A felhasználó ID-ja
+        const messages = await Message.find({ senderId: id }).populate('receiverId', 'name email'); // Üzenetek lekérése
+
+        res.status(200).json(messages);
+    } catch (error) {
+        console.log("getAllMessagesByUser error (controller message.js)", error.message);
+        res.status(500).json({ error: "Internal server error" });
+    }
+};
+
 // Üzenetek lekérdezése
 export const getMessages = async (req, res) => {
     try {
@@ -91,11 +104,12 @@ export const sendMessage = async (req, res) => {
 // Felhasználók lekérdezése
 export const getUsers = async (req, res) => {
     try {
-        // Felhasználók lekérdezése az adatbázisból
-        const users = await User.find({}, { password: 0 }); // Jelszó kihagyása a válaszból
-        res.status(200).json(users);
+        const loggedInUser = req.user._id;
+        const users = await User.find({ _id: { $ne: loggedInUser } }).select("-password") //összes user magunkon kívül, jelszót nem küldjük vissza a clientnek
+
+        res.status(200).json(users)
     } catch (error) {
-        console.error("getUsers error (controller message.js):", error.message);
-        res.status(500).json({ error: "Internal server error" });
+        console.log("getUsers error (controller message.js)", error.message)
+        res.status(500).json({ error: "Internal server error" })
     }
 };

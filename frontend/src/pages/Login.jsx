@@ -15,7 +15,15 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    login(formData)
+    try {
+      await login(formData);
+    } catch (error) {
+      if (error.response?.status === 403) {
+        toast.error("A felhasználó bannolva van");
+      } else {
+        toast.error(error.response?.data?.message || "Hiba történt a bejelentkezés során");
+      }
+    }
   };
 
   return (

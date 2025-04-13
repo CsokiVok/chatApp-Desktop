@@ -1,5 +1,4 @@
 @import "tailwindcss";
-
 @plugin "daisyui" {
-  themes: light --default, dark --prefersdark, aqua, synthwave, sunset, night;
+  themes: light --default, dark --prefersdark, aqua, synthwave, sunset, night, business;
 }
