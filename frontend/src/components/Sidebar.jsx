@@ -27,7 +27,7 @@ const Sidebar = () => {
                 <div className="flex items-center gap-2">
                     <Users className='size-4'/>
                     
-                    <button onClick={() => setSelectedUser(null)}>Emberek</button>
+                    <button className='hover:bg-base-300 transition-colors' onClick={() => setSelectedUser(null)}>Felhasználók</button>
                 </div>
             </div>
 
