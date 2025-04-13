@@ -60,18 +60,18 @@ export const login = async (req, res) => {
         const user = await User.findOne({ email });
         // Ellenőrzi, hogy van-e ilyen user
         if (!user) {
-            return res.status(400).json({ message: "Invalid email or password" });
+            return res.status(400).json({ message: "Hibás email vagy jelszó" });
         }
 
         // Ellenőrzi, hogy a felhasználó bannolva van-e
         if (user.banned) {
-            return res.status(403).json({ message: "This account is banned" });
+            return res.status(403).json({ message: "A felhasználó bannolva" });
         }
 
         // Összehasonlítja a megadott jelszót az adatbázisban lévővel
         const correctPassword = await bcrypt.compare(password, user.password);
         if (!correctPassword) {
-            return res.status(400).json({ message: "Invalid email or password" });
+            return res.status(400).json({ message: "Hibás email vagy jelszó" });
         }
 
         const token = generateToken(user._id, res);

@@ -19,7 +19,7 @@ function Login() {
       await login(formData);
     } catch (error) {
       if (error.response?.status === 403) {
-        toast.error("A felhasználó bannolva van");
+        toast.error("A felhasználó bannolva");
       } else {
         toast.error(error.response?.data?.message || "Hiba történt a bejelentkezés során");
       }
