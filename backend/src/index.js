@@ -6,6 +6,10 @@ import cookieParser from "cookie-parser";
 import { connectDB } from "./lib/db.js";
 import cors from "cors";
 import { app, server } from "./lib/socket.js";
+import swaggerUi from "swagger-ui-express";
+import swaggerDocument from "./swagger.js";
+
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 dotenv.config();
 
