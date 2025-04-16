@@ -26,13 +26,14 @@ npm install
 Hozz létre egy `.env` fájlt a `backend` mappában, és add meg a következő változókat:
 
 PORT=5001
-MONGODB=<MongoDB_connection_string>
-JWTSECRET=<JWT_secret_key>
-CLOUDNARY_NAME=<Cloudinary_name>
-CLOUDNARY_APIKEY=<Cloudinary_API_key>
-CLOUDNARY_SECRET=<Cloudinary_API_secret>
+MONGODB= mongodb+srv://dudas04bence:5ysbjxQVvrrFCULa@cluster0.g7ce8.mongodb.net/chatdb?retryWrites=true&w=majority&appName=Cluster0
+JWTSECRET= secret
+CLOUDNARY_NAME = dbwfyovro
+CLOUDNARY_APIKEY = 353439521735365
+CLOUDNARY_SECRET = We__aXwhGXuHeybNCMrnqTwx3U8
 
 ### 4. Indítsd el az alkalmazást fejlesztői módban
+Nem működik jól dev-ben mivel nem találja az oldalakat, buildeltben működik
 ```bash
 npm start
 ```
