@@ -77,6 +77,17 @@ A frontend buildelése után nyisd meg a frontend/dist/index.html fájlt, és a 
 npm run dist
 ```
 
+### Indítás
+
+### 1.Backend elindítása
+```bash
+cd .\backend\
+npm run dev
+```
+
+### 2.Alkalmazás elindítása 
+A telepített alkalmazás elindítása
+
 ### Mappastruktúra
 main.js: Az Electron fő folyamata, amely kezeli az ablakokat és az alkalmazás életciklusát.
 frontend/: A React alapú felhasználói felület.
